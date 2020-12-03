@@ -88,3 +88,7 @@ titles_made_in_india.to_csv("./titles-made-in-India.csv")
 data_copy = data.copy()
 korean_tv_shows = data_copy[data_copy['listed_in'].apply(lambda x: "Korean" if re.search(r".*Korean TV Shows", x) else x) == "Korean"].reset_index(drop=True).rename_axis("index")
 korean_tv_shows.to_csv('./Korean-tv-shows.csv')
+
+# Accessing all the statistical data from the data frame
+statistics = data.describe()
+print(statistics.loc["count"][0])
